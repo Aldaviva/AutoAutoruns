@@ -55,11 +55,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Autoruns\AdobeCoreSyncExtension.cs" />
     <Compile Include="Autoruns\AdobeAcrobatContextMenu.cs" />
     <Compile Include="Autoruns\Base\Autorun.cs" />
     <Compile Include="Autoruns\AdobeCreativeCloudExperience.cs" />
     <Compile Include="Autoruns\AdobeCreativeCloud.cs" />
     <Compile Include="Autoruns\Base\ScheduledTaskAutorun.cs" />
+    <Compile Include="Autoruns\NvidiaControlPanelDesktopContext.cs" />
     <Compile Include="Autoruns\VmwareTray.cs" />
     <Compile Include="Autoruns\AdobeAcrobatAssistant.cs" />
     <Compile Include="Autoruns\AdobeApplicationManagerUpdater.cs" />

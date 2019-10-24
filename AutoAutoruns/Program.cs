@@ -18,8 +18,14 @@ namespace AutoAutoruns {
             new AdobeAcrobatContextMenuFolderContextMenuHandlers(),
             new AdobeAcrobatContextMenuWildcardContextMenuHandlers(),
             new AdobeApplicationManagerUpdater(),
+            new AdobeCoreSyncExtensionFolderContextMenuHandlers(),
+            new AdobeCoreSyncExtensionIcon(1),
+            new AdobeCoreSyncExtensionIcon(2),
+            new AdobeCoreSyncExtensionIcon(3),
+            new AdobeCoreSyncExtensionWildcardContextMenuHandlers(),
             new AdobeCreativeCloud(),
             new AdobeCreativeCloudExperience(),
+            new NvidiaControlPanelDesktopContext(),
             new VmwareTray()
         };
 

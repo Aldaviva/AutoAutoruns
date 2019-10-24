@@ -69,11 +69,13 @@ namespace AutoAutoruns.Autoruns.Base {
 
             using (RegistryKey oldKey = registryLocation.hive.OpenSubKey(registryLocation.path, true))
             using (RegistryKey newKey = registryLocation.hive.CreateSubKey(newPath, true)) {
-                foreach (string name in oldKey.GetValueNames()) {
-                    RegistryValueKind kind = oldKey.GetValueKind(name);
-                    object value = oldKey.GetValue(name);
+                Debug.Assert(oldKey != null, nameof(oldKey) + " != null");
 
-                    newKey.SetValue(name, value, kind);
+                foreach (string valueName in oldKey.GetValueNames()) {
+                    RegistryValueKind kind = oldKey.GetValueKind(valueName);
+                    object value = oldKey.GetValue(valueName);
+
+                    newKey.SetValue(valueName, value, kind);
                 }
 
 //                Console.WriteLine($"Deleting {RegistryLocation.hive}\\{RegistryLocation.path}");
