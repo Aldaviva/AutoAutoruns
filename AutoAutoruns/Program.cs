@@ -4,6 +4,8 @@ using System.Linq;
 using AutoAutoruns.Autoruns;
 using AutoAutoruns.Autoruns.Base;
 
+#nullable enable
+
 namespace AutoAutoruns {
 
     public class Program {
@@ -25,7 +27,11 @@ namespace AutoAutoruns {
             new AdobeCoreSyncExtensionWildcardContextMenuHandlers(),
             new AdobeCreativeCloud(),
             new AdobeCreativeCloudExperience(),
-            new NvidiaControlPanelDesktopContext(),
+            new NvidiaAppShellExtensions(),
+            new NvidiaControlPanelDesktopContextClassApprovedShellExtension(),
+            new NvidiaControlPanelDesktopContextMenuHandler(),
+            new NvidiaOpenGlShellExtensions(),
+            new NvidiaPlayOnMyTvContextMenuExtension(),
             new VmwareTray()
         };
 

@@ -1,6 +1,8 @@
 ﻿using AutoAutoruns.Autoruns.Base;
 using Microsoft.Win32;
 
+#nullable enable
+
 namespace AutoAutoruns.Autoruns {
 
     public abstract class AdobeCoreSyncExtension: RegistryAutorun {
@@ -9,7 +11,7 @@ namespace AutoAutoruns.Autoruns {
 
         protected abstract string registryPath { get; }
 
-        protected sealed override (RegistryKey hive, string path, string name) registryLocation =>
+        protected sealed override (RegistryKey hive, string path, string? name) registryLocation =>
             (hive: Registry.LocalMachine, path: registryPath, name: null);
 
     }

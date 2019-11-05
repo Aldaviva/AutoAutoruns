@@ -1,6 +1,8 @@
 ﻿using AutoAutoruns.Autoruns.Base;
 using Microsoft.Win32;
 
+#nullable enable
+
 namespace AutoAutoruns.Autoruns {
 
     public class AdobeApplicationManagerUpdater: RegistryAutorun {

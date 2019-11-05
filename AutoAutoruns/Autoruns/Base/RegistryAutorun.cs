@@ -1,4 +1,6 @@
-﻿using System.Diagnostics;
+﻿#nullable enable
+
+using System;
 using System.IO;
 using Microsoft.Win32;
 
@@ -9,25 +11,25 @@ namespace AutoAutoruns.Autoruns.Base {
         private const string DISABLED_FOLDER_NAME = "AutorunsDisabled";
 
         public abstract string name { get; }
-        protected abstract (RegistryKey hive, string path, string name) registryLocation { get; }
+        protected abstract (RegistryKey hive, string path, string? name) registryLocation { get; }
 
-        public bool enabled { 
+        public bool enabled {
             get => isEnabled();
             set => setEnabled(value);
         }
 
         private bool isEnabled() {
-            using (RegistryKey key = registryLocation.hive.OpenSubKey(registryLocation.path, false)) {
-                try {
-                    if (registryLocation.name != null) {
-                        return key?.GetValueKind(registryLocation.name) != null;
-                    } else {
-                        return key != null;
-                    }
-                } catch (IOException) {
-                    return false;
+            using RegistryKey key = registryLocation.hive.OpenSubKey(registryLocation.path, false);
+            try {
+                if (registryLocation.name != null) {
+                    return key?.GetValueKind(registryLocation.name) != null;
+                } else {
+                    return key != null;
                 }
+            } catch (IOException) {
+                return false;
             }
+
         }
 
         private void setEnabled(bool shouldBeEnabled) {
@@ -38,7 +40,7 @@ namespace AutoAutoruns.Autoruns.Base {
                     disableKey();
                 }
             } else {
-                throw new System.NotImplementedException();
+                throw new NotImplementedException();
             }
         }
 
@@ -46,41 +48,37 @@ namespace AutoAutoruns.Autoruns.Base {
         // Old value is deleted
         // example: HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Microsoft\Windows\CurrentVersion\Run\AutorunsDisabled
         private void disableValue() {
-            using (RegistryKey oldKey = registryLocation.hive.OpenSubKey(registryLocation.path, true))
-            using (RegistryKey newKey = oldKey?.CreateSubKey(DISABLED_FOLDER_NAME, true)) {
-                Debug.Assert(oldKey != null, nameof(oldKey) + " != null");
+            using RegistryKey oldKey = registryLocation.hive.OpenSubKey(registryLocation.path, true);
+            using RegistryKey newKey = oldKey!.CreateSubKey(DISABLED_FOLDER_NAME, true)!;
 
-                RegistryValueKind kind = oldKey.GetValueKind(registryLocation.name);
-                object value = oldKey.GetValue(registryLocation.name);
+            RegistryValueKind kind = oldKey.GetValueKind(registryLocation.name);
+            object value = oldKey.GetValue(registryLocation.name);
 
-                newKey.SetValue(registryLocation.name, value, kind);
+            newKey.SetValue(registryLocation.name, value, kind);
 //                Console.WriteLine($"Deleting {RegistryLocation.hive}\\{RegistryLocation.path}\\{RegistryLocation.name}");
-                oldKey.DeleteValue(registryLocation.name);
-            }
+            oldKey.DeleteValue(registryLocation.name);
         }
 
         // Move all values inside key to niece/nephew key
         // Old key and all its values are deleted
         // example: HKEY_LOCAL_MACHINE\SOFTWARE\Classes\*\shellex\ContextMenuHandlers\AutorunsDisabled\TeraCopyS64
         private void disableKey() {
-            string newPath = Path.Combine(Path.GetDirectoryName(registryLocation.path),
+            string newPath = Path.Combine(Path.GetDirectoryName(registryLocation.path), 
                 DISABLED_FOLDER_NAME,
                 Path.GetFileName(registryLocation.path));
 
-            using (RegistryKey oldKey = registryLocation.hive.OpenSubKey(registryLocation.path, true))
-            using (RegistryKey newKey = registryLocation.hive.CreateSubKey(newPath, true)) {
-                Debug.Assert(oldKey != null, nameof(oldKey) + " != null");
+            using RegistryKey oldKey = registryLocation.hive.OpenSubKey(registryLocation.path, true);
+            using RegistryKey newKey = registryLocation.hive.CreateSubKey(newPath, true);
 
-                foreach (string valueName in oldKey.GetValueNames()) {
-                    RegistryValueKind kind = oldKey.GetValueKind(valueName);
-                    object value = oldKey.GetValue(valueName);
+            foreach (string valueName in oldKey.GetValueNames()) {
+                RegistryValueKind kind = oldKey.GetValueKind(valueName);
+                object value = oldKey.GetValue(valueName);
 
-                    newKey.SetValue(valueName, value, kind);
-                }
+                newKey.SetValue(valueName, value, kind);
+            }
 
 //                Console.WriteLine($"Deleting {RegistryLocation.hive}\\{RegistryLocation.path}");
-                registryLocation.hive.DeleteSubKey(registryLocation.path);
-            }
+            registryLocation.hive.DeleteSubKey(registryLocation.path);
         }
 
     }

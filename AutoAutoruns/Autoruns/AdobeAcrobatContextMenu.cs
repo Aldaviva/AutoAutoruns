@@ -1,6 +1,8 @@
 ﻿using AutoAutoruns.Autoruns.Base;
 using Microsoft.Win32;
 
+#nullable enable
+
 namespace AutoAutoruns.Autoruns {
 
     public abstract class AdobeAcrobatContextMenu: RegistryAutorun {
@@ -8,9 +10,9 @@ namespace AutoAutoruns.Autoruns {
         public sealed override string name { get; } = "Adobe Acrobat Context Menu";
 
         protected abstract string registryPath { get; }
-        protected virtual string registryName => null;
+        protected virtual string? registryName => null;
 
-        protected sealed override (RegistryKey hive, string path, string name) registryLocation =>
+        protected sealed override (RegistryKey hive, string path, string? name) registryLocation =>
             (hive: Registry.LocalMachine, path: registryPath, name: registryName);
 
     }

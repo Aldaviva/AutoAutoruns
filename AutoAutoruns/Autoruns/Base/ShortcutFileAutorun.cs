@@ -1,6 +1,8 @@
 ﻿using System.Diagnostics;
 using System.IO;
 
+#nullable enable
+
 namespace AutoAutoruns.Autoruns.Base {
 
     public abstract class ShortcutFileAutorun: Autorun {

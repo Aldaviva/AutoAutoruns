@@ -14,6 +14,12 @@
     <Deterministic>true</Deterministic>
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
+    <!-- Specifies the version of this rewriter to use. -->
+    <TunnelVisionLabsReferenceAssemblyAnnotatorVersion>1.0.0-alpha.97</TunnelVisionLabsReferenceAssemblyAnnotatorVersion>
+    <!-- Specifies the version of Microsoft.NETCore.App.Ref to obtain nullability information from. -->
+    <AnnotatedReferenceAssemblyVersion>3.0.0</AnnotatedReferenceAssemblyVersion>
+    <!-- Includes the nullable attributes from dotnet/coreclr as source code with 'internal' accessibility. Set this to false if the attributes are included from another source and/or are not needed. -->
+    <GenerateNullableAttributes>true</GenerateNullableAttributes>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -25,6 +31,8 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <Prefer32Bit>false</Prefer32Bit>
+    <LangVersion>8.0</LangVersion>
+    <Nullable>enable</Nullable>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -35,6 +43,8 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <Prefer32Bit>false</Prefer32Bit>
+    <LangVersion>8.0</LangVersion>
+    <Nullable>enable</Nullable>
   </PropertyGroup>
   <PropertyGroup>
     <StartupObject />
@@ -53,6 +63,13 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Xml" />
+    <!--
+        <PackageReference Include="Nullable" Version="1.1.1">
+            <PrivateAssets>all</PrivateAssets>
+            <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+        </PackageReference>-->
+    <PackageReference Include="TunnelVisionLabs.ReferenceAssemblyAnnotator" Version="$(TunnelVisionLabsReferenceAssemblyAnnotatorVersion)" PrivateAssets="all" />
+    <PackageDownload Include="Microsoft.NETCore.App.Ref" Version="[$(AnnotatedReferenceAssemblyVersion)]" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Autoruns\AdobeCoreSyncExtension.cs" />
@@ -61,7 +78,8 @@
     <Compile Include="Autoruns\AdobeCreativeCloudExperience.cs" />
     <Compile Include="Autoruns\AdobeCreativeCloud.cs" />
     <Compile Include="Autoruns\Base\ScheduledTaskAutorun.cs" />
-    <Compile Include="Autoruns\NvidiaControlPanelDesktopContext.cs" />
+    <Compile Include="Autoruns\NvidiaControlPanelDesktopContextMenuHandler.cs" />
+    <Compile Include="Autoruns\NvidiaShellExtensions.cs" />
     <Compile Include="Autoruns\VmwareTray.cs" />
     <Compile Include="Autoruns\AdobeAcrobatAssistant.cs" />
     <Compile Include="Autoruns\AdobeApplicationManagerUpdater.cs" />

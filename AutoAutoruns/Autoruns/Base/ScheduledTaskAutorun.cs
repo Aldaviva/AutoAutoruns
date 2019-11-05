@@ -1,6 +1,8 @@
 ﻿using System;
 using Microsoft.Win32.TaskScheduler;
 
+#nullable enable
+
 namespace AutoAutoruns.Autoruns.Base {
 
     public abstract class ScheduledTaskAutorun: Autorun {
@@ -21,17 +23,15 @@ namespace AutoAutoruns.Autoruns.Base {
         }
 
         private bool isEnabled() {
-            using (Task scheduledTask = TASK_SERVICE.Value.GetTask(path)) {
-                return scheduledTask?.Definition.Settings.Enabled ?? false;
-            }
+            using Task scheduledTask = TASK_SERVICE.Value.GetTask(path);
+            return scheduledTask?.Definition.Settings.Enabled ?? false;
         }
 
         private void setEnabled(bool shouldBeEnabled) {
             if (!shouldBeEnabled) {
-                using (Task scheduledTask = TASK_SERVICE.Value.GetTask(path)) {
-                    scheduledTask.Definition.Settings.Enabled = false;
-                    scheduledTask.RegisterChanges();
-                }
+                using Task scheduledTask = TASK_SERVICE.Value.GetTask(path);
+                scheduledTask.Definition.Settings.Enabled = false;
+                scheduledTask.RegisterChanges();
             } else {
                 throw new NotImplementedException();
             }

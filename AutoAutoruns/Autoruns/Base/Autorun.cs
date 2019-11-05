@@ -1,4 +1,6 @@
-﻿namespace AutoAutoruns.Autoruns.Base {
+﻿#nullable enable
+
+namespace AutoAutoruns.Autoruns.Base {
 
     public interface Autorun {
 
