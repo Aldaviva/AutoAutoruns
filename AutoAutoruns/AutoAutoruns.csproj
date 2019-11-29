@@ -74,6 +74,8 @@
   <ItemGroup>
     <Compile Include="Autoruns\AdobeCoreSyncExtension.cs" />
     <Compile Include="Autoruns\AdobeAcrobatContextMenu.cs" />
+    <Compile Include="Autoruns\AdobeFlashPlayerNotifier.cs" />
+    <Compile Include="Autoruns\AdobeFlashPlayerUpdater.cs" />
     <Compile Include="Autoruns\Base\Autorun.cs" />
     <Compile Include="Autoruns\AdobeCreativeCloudExperience.cs" />
     <Compile Include="Autoruns\AdobeCreativeCloud.cs" />
