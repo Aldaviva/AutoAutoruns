@@ -19,6 +19,7 @@ namespace AutoAutoruns {
             new AdobeAcrobatContextMenuApprovedShellExtension(),
             new AdobeAcrobatContextMenuFolderContextMenuHandlers(),
             new AdobeAcrobatContextMenuWildcardContextMenuHandlers(),
+            new AdobeAcrobatUpdateTask(),
             new AdobeApplicationManagerUpdater(),
             new AdobeCoreSyncExtensionFolderContextMenuHandlers(),
             new AdobeCoreSyncExtensionIcon(1),
