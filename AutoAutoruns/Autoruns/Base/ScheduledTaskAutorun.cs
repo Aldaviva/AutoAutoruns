@@ -1,7 +1,7 @@
-﻿using System;
-using Microsoft.Win32.TaskScheduler;
+﻿#nullable enable
 
-#nullable enable
+using System;
+using Microsoft.Win32.TaskScheduler;
 
 namespace AutoAutoruns.Autoruns.Base {
 

@@ -1,6 +1,7 @@
 ﻿#nullable enable
 
 using System;
+using System.Collections.Generic;
 using System.IO;
 using Microsoft.Win32;
 
@@ -29,7 +30,6 @@ namespace AutoAutoruns.Autoruns.Base {
             } catch (IOException) {
                 return false;
             }
-
         }
 
         private void setEnabled(bool shouldBeEnabled) {
@@ -48,8 +48,12 @@ namespace AutoAutoruns.Autoruns.Base {
         // Old value is deleted
         // example: HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Microsoft\Windows\CurrentVersion\Run\AutorunsDisabled
         private void disableValue() {
-            using RegistryKey oldKey = registryLocation.hive.OpenSubKey(registryLocation.path, true);
-            using RegistryKey newKey = oldKey!.CreateSubKey(DISABLED_FOLDER_NAME, true)!;
+            if (registryLocation.path == null) return;
+
+            using RegistryKey oldKey = registryLocation.hive.OpenSubKey(registryLocation.path, true) ?? throw
+                new KeyNotFoundException(
+                    $"No registry key {registryLocation.path} in {registryLocation.hive.Name}");
+            using RegistryKey newKey = oldKey.CreateSubKey(DISABLED_FOLDER_NAME, true);
 
             RegistryValueKind kind = oldKey.GetValueKind(registryLocation.name);
             object value = oldKey.GetValue(registryLocation.name);
@@ -63,11 +67,14 @@ namespace AutoAutoruns.Autoruns.Base {
         // Old key and all its values are deleted
         // example: HKEY_LOCAL_MACHINE\SOFTWARE\Classes\*\shellex\ContextMenuHandlers\AutorunsDisabled\TeraCopyS64
         private void disableKey() {
-            string newPath = Path.Combine(Path.GetDirectoryName(registryLocation.path), 
+            if (registryLocation.path == null) return;
+
+            string newPath = Path.Combine(Path.GetDirectoryName(registryLocation.path) ?? string.Empty,
                 DISABLED_FOLDER_NAME,
                 Path.GetFileName(registryLocation.path));
 
-            using RegistryKey oldKey = registryLocation.hive.OpenSubKey(registryLocation.path, true);
+            using RegistryKey oldKey = registryLocation.hive.OpenSubKey(registryLocation.path, true) ?? throw new KeyNotFoundException(
+                $"No registry key {registryLocation.path} in {registryLocation.hive.Name}");
             using RegistryKey newKey = registryLocation.hive.CreateSubKey(newPath, true);
 
             foreach (string valueName in oldKey.GetValueNames()) {

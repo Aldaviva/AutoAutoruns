@@ -5,12 +5,12 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("AutoAutoruns")]
+[assembly: AssemblyTitle("Tests")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Ben's World")]
-[assembly: AssemblyProduct("AutoAutoruns")]
-[assembly: AssemblyCopyright("Copyright © Ben's World 2019")]
+[assembly: AssemblyProduct("Tests")]
+[assembly: AssemblyCopyright("Copyright © Ben's World 2020")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("53b151c0-b2f3-4352-af5e-87f533134d31")]
+[assembly: Guid("bcde26fd-fce2-410d-9e89-7ed6a09ca80e")]
 
 // Version information for an assembly consists of the following four values:
 //
@@ -34,6 +34,3 @@ using System.Runtime.InteropServices;
 // [assembly: AssemblyVersion("1.0.*")]
 [assembly: AssemblyVersion("1.0.0.0")]
 [assembly: AssemblyFileVersion("1.0.0.0")]
-
-[assembly: InternalsVisibleTo("Tests")]
-[assembly: InternalsVisibleTo("DynamicProxyGenAssembly2")]

@@ -1,7 +1,8 @@
-﻿using System.Diagnostics;
-using System.IO;
+﻿#nullable enable
 
-#nullable enable
+using System;
+using System.Diagnostics.CodeAnalysis;
+using System.IO;
 
 namespace AutoAutoruns.Autoruns.Base {
 
@@ -11,6 +12,7 @@ namespace AutoAutoruns.Autoruns.Base {
 
         public abstract string name { get; }
 
+        [NotNull]
         protected abstract string filePath { get; }
 
         public bool enabled {
@@ -26,8 +28,6 @@ namespace AutoAutoruns.Autoruns.Base {
             if (!shouldBeEnabled) {
                 string parentDirectory = Path.GetDirectoryName(filePath);
                 string fileName = Path.GetFileName(filePath);
-                Debug.Assert(parentDirectory != null, nameof(parentDirectory) + " != null");
-                Debug.Assert(fileName != null, nameof(fileName) + " != null");
 
                 string childDirectory = Path.Combine(parentDirectory, DISABLED_FOLDER_NAME);
                 string disabledFilePath = Path.Combine(childDirectory, fileName);
@@ -35,7 +35,7 @@ namespace AutoAutoruns.Autoruns.Base {
                 Directory.CreateDirectory(childDirectory);
                 File.Move(filePath, disabledFilePath);
             } else {
-                throw new System.NotImplementedException();
+                throw new NotImplementedException();
             }
         }
 
