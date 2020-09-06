@@ -28,6 +28,7 @@ namespace AutoAutoruns {
             new AdobeCoreSyncExtensionWildcardContextMenuHandlers(),
             new AdobeCreativeCloud(),
             new AdobeCreativeCloudExperience(),
+            new AdobeCreativeCloudExperienceProcess(),
             new AdobeFlashPlayerNotifier(),
             new AdobeFlashPlayerUpdater(),
             new NvidiaAppShellExtensions(),

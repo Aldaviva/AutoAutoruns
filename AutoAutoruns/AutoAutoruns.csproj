@@ -61,6 +61,7 @@
     <Compile Include="Autoruns\AdobeAcrobatUpdateTask.cs" />
     <Compile Include="Autoruns\AdobeCoreSyncExtension.cs" />
     <Compile Include="Autoruns\AdobeAcrobatContextMenu.cs" />
+    <Compile Include="Autoruns\AdobeCreativeCloudExperienceProcess.cs" />
     <Compile Include="Autoruns\AdobeFlashPlayerNotifier.cs" />
     <Compile Include="Autoruns\AdobeFlashPlayerUpdater.cs" />
     <Compile Include="Autoruns\Base\Autorun.cs" />
