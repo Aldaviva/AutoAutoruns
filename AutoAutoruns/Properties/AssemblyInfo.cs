@@ -8,9 +8,9 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyTitle("AutoAutoruns")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("Ben's World")]
+[assembly: AssemblyCompany("Ben Hutchison")]
 [assembly: AssemblyProduct("AutoAutoruns")]
-[assembly: AssemblyCopyright("Copyright © Ben's World 2019")]
+[assembly: AssemblyCopyright("Copyright © Ben Hutchison 2020")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
