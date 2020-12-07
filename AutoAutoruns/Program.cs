@@ -33,13 +33,17 @@ namespace AutoAutoruns {
             new AdobeGCInvokerScheduledTask(),
             new AdobeFlashPlayerNotifier(),
             new AdobeFlashPlayerUpdater(),
+            new AutoCADColumnHandler(),
+            new AutoCADContextMenuHandler(),
             new CanonEosUtility(),
+            new HexWorkshopContextMenu(),
             new NvidiaAppShellExtensions(),
             new NvidiaControlPanelDesktopContextClassApprovedShellExtension(),
             new NvidiaControlPanelDesktopContextMenuHandler(),
             new NvidiaOpenGlShellExtensions(),
             new NvidiaPlayOnMyTvContextMenuExtension(),
-            new VmwareTray()
+            new VMDiskMenuHandler(),
+            new VmwareTray(),
         };
 
         private void run() {
