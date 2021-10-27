@@ -52,6 +52,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Autoruns\AdobeAcrobatSynchronizer.cs" />
     <Compile Include="Autoruns\AutoCADColumnHandler.cs" />
     <Compile Include="Autoruns\AutoCADContextMenuHandler.cs" />
     <Compile Include="Autoruns\AdobeAcrobatUpdateTask.cs" />
@@ -92,7 +93,7 @@
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
     <PackageReference Include="TaskScheduler">
-      <Version>2.8.21</Version>
+      <Version>2.9.2</Version>
     </PackageReference>
   </ItemGroup>
   <ItemGroup>
