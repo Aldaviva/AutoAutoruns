@@ -1,17 +1,14 @@
-﻿using AutoAutoruns.Autoruns.Base;
+﻿#nullable enable
+
+using AutoAutoruns.Autoruns.Base;
 using Microsoft.Win32;
 
-#nullable enable
+namespace AutoAutoruns.Autoruns;
 
-namespace AutoAutoruns.Autoruns {
+public class AdobeCreativeCloudExperience: RegistryAutorun {
 
-    public class AdobeCreativeCloudExperience: RegistryAutorun {
+    public override string name { get; } = "Adobe Creative Cloud Experience";
 
-        public override string name { get; } = "Adobe Creative Cloud Experience";
-
-        protected override (RegistryKey hive, string path, string name) registryLocation { get; } = (Registry.CurrentUser,
-            @"Software\Microsoft\Windows\CurrentVersion\Run", "CCXProcess");
-
-    }
+    protected override (RegistryKey hive, string path, string name) registryLocation { get; } = (Registry.CurrentUser, @"Software\Microsoft\Windows\CurrentVersion\Run", "CCXProcess");
 
 }

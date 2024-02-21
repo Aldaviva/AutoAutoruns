@@ -1,17 +1,17 @@
-﻿using AutoAutoruns.Autoruns.Base;
+﻿#nullable enable
+
+using AutoAutoruns.Autoruns.Base;
 using Microsoft.Win32;
 
-#nullable enable
+namespace AutoAutoruns.Autoruns;
 
-namespace AutoAutoruns.Autoruns {
+public class NvidiaControlPanelDesktopContextMenuHandler: RegistryAutorun {
 
-    public class NvidiaControlPanelDesktopContextMenuHandler: RegistryAutorun {
+    public override string name { get; } = "Nvidia Control Panel Desktop Context";
 
-        public override string name { get; } = "Nvidia Control Panel Desktop Context";
-
-        protected override (RegistryKey hive, string path, string? name) registryLocation { get; } = (hive: Registry.LocalMachine,
-            path: @"SOFTWARE\Classes\Directory\Background\shellex\ContextMenuHandlers\NvCplDesktopContext", name: null);
-
-    }
+    protected override (RegistryKey hive, string path, string? name) registryLocation { get; } =
+        (hive: Registry.LocalMachine,
+         path: @"SOFTWARE\Classes\Directory\Background\shellex\ContextMenuHandlers\NvCplDesktopContext",
+         name: null);
 
 }

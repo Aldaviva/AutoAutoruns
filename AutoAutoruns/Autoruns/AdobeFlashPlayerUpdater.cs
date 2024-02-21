@@ -1,12 +1,12 @@
-﻿using AutoAutoruns.Autoruns.Base;
+﻿#nullable enable
 
-namespace AutoAutoruns.Autoruns {
+using AutoAutoruns.Autoruns.Base;
 
-    public class AdobeFlashPlayerUpdater: ScheduledTaskAutorun {
+namespace AutoAutoruns.Autoruns;
 
-        public override string name { get; } = "Adobe Flash Player Updater";
-        protected override string path { get; } = @"\Adobe Flash Player Updater";
+public class AdobeFlashPlayerUpdater: ScheduledTaskAutorun {
 
-    }
+    public override string name { get; } = "Adobe Flash Player Updater";
+    protected override string path { get; } = @"\Adobe Flash Player Updater";
 
 }

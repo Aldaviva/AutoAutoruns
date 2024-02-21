@@ -1,14 +1,12 @@
-﻿using AutoAutoruns.Autoruns.Base;
+﻿#nullable enable
 
-#nullable enable
+using AutoAutoruns.Autoruns.Base;
 
-namespace AutoAutoruns.Autoruns {
+namespace AutoAutoruns.Autoruns;
 
-    public class CanonEosUtility: ShortcutFileAutorun {
+public class CanonEosUtility: ShortcutFileAutorun {
 
-        public override string name { get; } = "EOS Utility";
-        protected override string filePath { get; } = @"%APPDATA%\Microsoft\Windows\Start Menu\Programs\Startup\EOS Utility.lnk";
-
-    }
+    public override string name { get; } = "EOS Utility";
+    protected override string filePath { get; } = @"%APPDATA%\Microsoft\Windows\Start Menu\Programs\Startup\EOS Utility.lnk";
 
 }

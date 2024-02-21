@@ -2,13 +2,11 @@
 
 using AutoAutoruns.Autoruns.Base;
 
-namespace AutoAutoruns.Autoruns {
+namespace AutoAutoruns.Autoruns;
 
-    public class CCleanerCrashReporting: ScheduledTaskAutorun {
+public class CCleanerCrashReporting: ScheduledTaskAutorun {
 
-        public override string name { get; } = "CCleaner Crash Reporting";
-        protected override string path { get; } = @"\CCleanerCrashReporting";
-
-    }
+    public override string name { get; } = "CCleaner Crash Reporting";
+    protected override string path { get; } = @"\CCleanerCrashReporting";
 
 }

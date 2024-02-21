@@ -1,17 +1,14 @@
-﻿using AutoAutoruns.Autoruns.Base;
+﻿#nullable enable
+
+using AutoAutoruns.Autoruns.Base;
 using Microsoft.Win32;
 
-#nullable enable
+namespace AutoAutoruns.Autoruns;
 
-namespace AutoAutoruns.Autoruns {
+public class AdobeApplicationManagerUpdater: RegistryAutorun {
 
-    public class AdobeApplicationManagerUpdater: RegistryAutorun {
+    public override string name { get; } = "Adobe Application Manager Updater";
 
-        public override string name { get; } = "Adobe Application Manager Updater";
-
-        protected override (RegistryKey hive, string path, string name) registryLocation { get; } = (Registry.LocalMachine,
-            @"SOFTWARE\Microsoft\Windows\CurrentVersion\Run", "AdobeAAMUpdater-1.0");
-
-    }
+    protected override (RegistryKey hive, string path, string name) registryLocation { get; } = (Registry.LocalMachine, @"SOFTWARE\Microsoft\Windows\CurrentVersion\Run", "AdobeAAMUpdater-1.0");
 
 }

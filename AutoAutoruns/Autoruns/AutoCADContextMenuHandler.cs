@@ -1,17 +1,15 @@
-﻿using AutoAutoruns.Autoruns.Base;
+﻿#nullable enable
+
+using AutoAutoruns.Autoruns.Base;
 using Microsoft.Win32;
 
-#nullable enable
+namespace AutoAutoruns.Autoruns;
 
-namespace AutoAutoruns.Autoruns {
+public class AutoCADContextMenuHandler: RegistryAutorun {
 
-    public class AutoCADContextMenuHandler: RegistryAutorun {
+    public override string name { get; } = "AutoCAD Context Menu Handler";
 
-        public override string name { get; } = "AutoCAD Context Menu Handler";
-
-        protected override (RegistryKey hive, string path, string? name) registryLocation { get; } =
-            (Registry.LocalMachine, @"SOFTWARE\Classes\*\shellex\ContextMenuHandlers\AcShellExtension.AcContextMenuHandler", null);
-
-    }
+    protected override (RegistryKey hive, string path, string? name) registryLocation { get; } =
+        (Registry.LocalMachine, @"SOFTWARE\Classes\*\shellex\ContextMenuHandlers\AcShellExtension.AcContextMenuHandler", null);
 
 }

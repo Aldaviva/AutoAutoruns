@@ -1,12 +1,12 @@
-﻿using AutoAutoruns.Autoruns.Base;
+﻿#nullable enable
 
-namespace AutoAutoruns.Autoruns {
+using AutoAutoruns.Autoruns.Base;
 
-    public class AdobeAcrobatUpdateTask: ScheduledTaskAutorun {
+namespace AutoAutoruns.Autoruns;
 
-        public override string name { get; } = "Adobe Acrobat Update Task";
-        protected override string path { get; } = @"\Adobe Acrobat Update Task";
+public class AdobeAcrobatUpdateTask: ScheduledTaskAutorun {
 
-    }
+    public override string name { get; } = "Adobe Acrobat Update Task";
+    protected override string path { get; } = @"\Adobe Acrobat Update Task";
 
 }

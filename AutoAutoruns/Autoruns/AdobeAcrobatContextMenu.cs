@@ -1,39 +1,37 @@
-﻿using AutoAutoruns.Autoruns.Base;
+﻿#nullable enable
+
+using AutoAutoruns.Autoruns.Base;
 using Microsoft.Win32;
 
-#nullable enable
+namespace AutoAutoruns.Autoruns;
 
-namespace AutoAutoruns.Autoruns {
+public abstract class AdobeAcrobatContextMenu: RegistryAutorun {
 
-    public abstract class AdobeAcrobatContextMenu: RegistryAutorun {
+    public sealed override string name { get; } = "Adobe Acrobat Context Menu";
 
-        public sealed override string name { get; } = "Adobe Acrobat Context Menu";
+    protected abstract string registryPath { get; }
+    protected virtual string? registryName => null;
 
-        protected abstract string registryPath { get; }
-        protected virtual string? registryName => null;
+    protected sealed override (RegistryKey hive, string path, string? name) registryLocation =>
+        (hive: Registry.LocalMachine, path: registryPath, name: registryName);
 
-        protected sealed override (RegistryKey hive, string path, string? name) registryLocation =>
-            (hive: Registry.LocalMachine, path: registryPath, name: registryName);
+}
 
-    }
+public class AdobeAcrobatContextMenuWildcardContextMenuHandlers: AdobeAcrobatContextMenu {
 
-    public class AdobeAcrobatContextMenuWildcardContextMenuHandlers: AdobeAcrobatContextMenu {
+    protected override string registryPath { get; } = @"SOFTWARE\Classes\*\shellex\ContextMenuHandlers\Adobe.Acrobat.ContextMenu";
 
-        protected override string registryPath { get; } = @"SOFTWARE\Classes\*\shellex\ContextMenuHandlers\Adobe.Acrobat.ContextMenu";
+}
 
-    }
+public class AdobeAcrobatContextMenuFolderContextMenuHandlers: AdobeAcrobatContextMenu {
 
-    public class AdobeAcrobatContextMenuFolderContextMenuHandlers: AdobeAcrobatContextMenu {
+    protected override string registryPath { get; } = @"SOFTWARE\Classes\Folder\shellex\ContextMenuHandlers\Adobe.Acrobat.ContextMenu";
 
-        protected override string registryPath { get; } = @"SOFTWARE\Classes\Folder\shellex\ContextMenuHandlers\Adobe.Acrobat.ContextMenu";
+}
 
-    }
+public class AdobeAcrobatContextMenuApprovedShellExtension: AdobeAcrobatContextMenu {
 
-    public class AdobeAcrobatContextMenuApprovedShellExtension: AdobeAcrobatContextMenu {
-
-        protected override string registryPath { get; } = @"SOFTWARE\Microsoft\Windows\CurrentVersion\Shell Extensions\Approved";
-        protected override string registryName { get; } = "{A6595CD1-BF77-430A-A452-18696685F7C7}";
-
-    }
+    protected override string registryPath { get; } = @"SOFTWARE\Microsoft\Windows\CurrentVersion\Shell Extensions\Approved";
+    protected override string registryName { get; } = "{A6595CD1-BF77-430A-A452-18696685F7C7}";
 
 }
