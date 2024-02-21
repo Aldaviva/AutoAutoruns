@@ -1,7 +1,6 @@
 ﻿#nullable enable
 
 using System;
-using System.Diagnostics.CodeAnalysis;
 using System.IO;
 
 namespace AutoAutoruns.Autoruns.Base {
@@ -12,7 +11,6 @@ namespace AutoAutoruns.Autoruns.Base {
 
         public abstract string name { get; }
 
-        [NotNull]
         protected abstract string filePath { get; }
 
         private string filePathExpanded => Environment.ExpandEnvironmentVariables(filePath);
@@ -36,7 +34,10 @@ namespace AutoAutoruns.Autoruns.Base {
                 string childDirectory   = Path.Combine(parentDirectory, DISABLED_FOLDER_NAME);
                 string disabledFilePath = Path.Combine(childDirectory, fileName);
 
-                Directory.CreateDirectory(childDirectory);
+                DirectoryInfo disabledDirectory = Directory.CreateDirectory(childDirectory);
+                // seems like Windows will actually open the AutorunsDisabled folder in Explorer if it's not hidden. Autoruns makes it hidden, so we should too.
+                disabledDirectory.Attributes |= FileAttributes.Hidden;
+
                 for (int attempt = 0; attempt < 2; attempt++) {
                     try {
                         File.Move(filePathExpandedValue, disabledFilePath);

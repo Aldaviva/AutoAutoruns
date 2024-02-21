@@ -1,10 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿#nullable enable
+
 using AutoAutoruns.Autoruns;
 using AutoAutoruns.Autoruns.Base;
-
-#nullable enable
+using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace AutoAutoruns {
 
@@ -32,11 +32,14 @@ namespace AutoAutoruns {
             new AdobeCreativeCloudExperienceProcess(),
             new AdobeGCInvokerRegistry(),
             new AdobeGCInvokerScheduledTask(),
+            new AdobeGenuineSoftwareIntegrityScheduler(),
             new AdobeFlashPlayerNotifier(),
             new AdobeFlashPlayerUpdater(),
             new AutoCADColumnHandler(),
             new AutoCADContextMenuHandler(),
             new CanonEosUtility(),
+            new CCleanerUpdate(),
+            new CCleanerCrashReporting(),
             new HexWorkshopContextMenu(),
             new NvidiaAppShellExtensions(),
             new NvidiaControlPanelDesktopContextClassApprovedShellExtension(),
