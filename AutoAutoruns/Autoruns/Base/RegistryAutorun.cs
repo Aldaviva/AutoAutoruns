@@ -1,4 +1,4 @@
-﻿#nullable enable
+#nullable enable
 
 using Microsoft.Win32;
 using System;
@@ -7,12 +7,19 @@ using System.IO;
 
 namespace AutoAutoruns.Autoruns.Base;
 
-public abstract class RegistryAutorun: Autorun {
+public class RegistryAutorun: Autorun {
 
-    private const string DISABLED_FOLDER_NAME = "AutorunsDisabled";
+    internal const string DISABLED_FOLDER_NAME = "AutorunsDisabled";
 
-    public abstract string name { get; }
-    protected abstract (RegistryKey hive, string path, string? name) registryLocation { get; }
+    public RegistryAutorun() { }
+
+    public RegistryAutorun(string name, RegistryKey hive, string keyPath, string? valueName): this() {
+        this.name        = name;
+        registryLocation = (hive, keyPath, valueName);
+    }
+
+    public virtual string name { get; }
+    protected virtual (RegistryKey hive, string path, string? name) registryLocation { get; }
 
     public bool enabled {
         get => isEnabled();

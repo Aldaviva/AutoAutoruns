@@ -25,6 +25,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <NoWarn>CS8524</NoWarn>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -34,6 +35,7 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <NoWarn>CS8524</NoWarn>
   </PropertyGroup>
   <PropertyGroup>
     <StartupObject />
@@ -48,6 +50,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Autoruns\AdobeAcrobatPdfMakerForOffice.cs" />
     <Compile Include="Autoruns\AdobeAcrobatCheckForUpdates.cs" />
     <Compile Include="Autoruns\AdobeAcrobatSynchronizer.cs" />
     <Compile Include="Autoruns\AdobeGenuineSoftwareIntegrityScheduler.cs" />
@@ -64,6 +67,7 @@
     <Compile Include="Autoruns\Base\Autorun.cs" />
     <Compile Include="Autoruns\AdobeCreativeCloudExperience.cs" />
     <Compile Include="Autoruns\AdobeCreativeCloud.cs" />
+    <Compile Include="Autoruns\Base\CompoundAutorun.cs" />
     <Compile Include="Autoruns\Base\ScheduledTaskAutorun.cs" />
     <Compile Include="Autoruns\CanonEosUtility.cs" />
     <Compile Include="Autoruns\CCleanerCrashReporting.cs" />
@@ -71,6 +75,7 @@
     <Compile Include="Autoruns\HexWorkshopContextMenu.cs" />
     <Compile Include="Autoruns\NvidiaControlPanelDesktopContextMenuHandler.cs" />
     <Compile Include="Autoruns\NvidiaShellExtensions.cs" />
+    <Compile Include="Autoruns\Base\OfficeComAddInAutorun.cs" />
     <Compile Include="Autoruns\VMDiskMenuHandler.cs" />
     <Compile Include="Autoruns\VmwareTray.cs" />
     <Compile Include="Autoruns\AdobeAcrobatAssistant.cs" />
@@ -85,12 +90,12 @@
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="ILRepack.Lib.MSBuild.Task">
-            <Version>2.0.26</Version>
+      <Version>2.0.43</Version>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
     <PackageReference Include="TaskScheduler">
-            <Version>2.10.1</Version>
+      <Version>2.12.1</Version>
     </PackageReference>
   </ItemGroup>
   <ItemGroup>

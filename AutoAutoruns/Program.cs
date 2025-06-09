@@ -23,6 +23,7 @@ public static class Program {
         new AdobeAcrobatContextMenuApprovedShellExtension(),
         new AdobeAcrobatContextMenuFolderContextMenuHandlers(),
         new AdobeAcrobatContextMenuWildcardContextMenuHandlers(),
+        new AdobeAcrobatPdfMakerForOffice(),
         new AdobeAcrobatSynchronizer(),
         new AdobeAcrobatUpdateTask(),
         new AdobeApplicationManagerUpdater(),
