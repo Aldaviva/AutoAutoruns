@@ -1,99 +1,100 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-    <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
-    <PropertyGroup>
-        <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
-        <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-        <ProjectGuid>{53B151C0-B2F3-4352-AF5E-87F533134D31}</ProjectGuid>
-        <OutputType>WinExe</OutputType>
-        <RootNamespace>AutoAutoruns</RootNamespace>
-        <AssemblyName>AutoAutoruns</AssemblyName>
-        <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
-        <FileAlignment>512</FileAlignment>
-        <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
-        <Deterministic>true</Deterministic>
-        <LangVersion>latest</LangVersion>
-        <Nullable>enable</Nullable>
-        <Prefer32Bit>false</Prefer32Bit>
-    </PropertyGroup>
-    <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-        <PlatformTarget>AnyCPU</PlatformTarget>
-        <DebugSymbols>true</DebugSymbols>
-        <DebugType>full</DebugType>
-        <Optimize>false</Optimize>
-        <OutputPath>bin\Debug\</OutputPath>
-        <DefineConstants>DEBUG;TRACE</DefineConstants>
-        <ErrorReport>prompt</ErrorReport>
-        <WarningLevel>4</WarningLevel>
-    </PropertyGroup>
-    <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-        <PlatformTarget>AnyCPU</PlatformTarget>
-        <DebugType>pdbonly</DebugType>
-        <Optimize>true</Optimize>
-        <OutputPath>bin\Release\</OutputPath>
-        <DefineConstants>TRACE</DefineConstants>
-        <ErrorReport>prompt</ErrorReport>
-        <WarningLevel>4</WarningLevel>
-    </PropertyGroup>
-    <PropertyGroup>
-        <StartupObject />
-    </PropertyGroup>
-    <PropertyGroup>
-        <ApplicationIcon>IconGroup29.ico</ApplicationIcon>
-    </PropertyGroup>
-    <ItemGroup>
-        <Reference Include="System" />
-        <Reference Include="System.Core" />
-        <Reference Include="System.IO.Compression" />
-        <Reference Include="System.Xml" />
-    </ItemGroup>
-    <ItemGroup>
-        <Compile Include="Autoruns\AdobeAcrobatSynchronizer.cs" />
-        <Compile Include="Autoruns\AdobeGenuineSoftwareIntegrityScheduler.cs" />
-        <Compile Include="Autoruns\AutoCADColumnHandler.cs" />
-        <Compile Include="Autoruns\AutoCADContextMenuHandler.cs" />
-        <Compile Include="Autoruns\AdobeAcrobatUpdateTask.cs" />
-        <Compile Include="Autoruns\AdobeCoreSyncExtension.cs" />
-        <Compile Include="Autoruns\AdobeAcrobatContextMenu.cs" />
-        <Compile Include="Autoruns\AdobeCreativeCloudExperienceProcess.cs" />
-        <Compile Include="Autoruns\AdobeFlashPlayerNotifier.cs" />
-        <Compile Include="Autoruns\AdobeFlashPlayerUpdater.cs" />
-        <Compile Include="Autoruns\AdobeGCInvokerRegistry.cs" />
-        <Compile Include="Autoruns\AdobeGCInvokerScheduledTask.cs" />
-        <Compile Include="Autoruns\Base\Autorun.cs" />
-        <Compile Include="Autoruns\AdobeCreativeCloudExperience.cs" />
-        <Compile Include="Autoruns\AdobeCreativeCloud.cs" />
-        <Compile Include="Autoruns\Base\ScheduledTaskAutorun.cs" />
-        <Compile Include="Autoruns\CanonEosUtility.cs" />
-        <Compile Include="Autoruns\CCleanerCrashReporting.cs" />
-        <Compile Include="Autoruns\CCleanerUpdate.cs" />
-        <Compile Include="Autoruns\HexWorkshopContextMenu.cs" />
-        <Compile Include="Autoruns\NvidiaControlPanelDesktopContextMenuHandler.cs" />
-        <Compile Include="Autoruns\NvidiaShellExtensions.cs" />
-        <Compile Include="Autoruns\VMDiskMenuHandler.cs" />
-        <Compile Include="Autoruns\VmwareTray.cs" />
-        <Compile Include="Autoruns\AdobeAcrobatAssistant.cs" />
-        <Compile Include="Autoruns\AdobeApplicationManagerUpdater.cs" />
-        <Compile Include="Program.cs" />
-        <Compile Include="Properties\AssemblyInfo.cs" />
-        <Compile Include="Autoruns\Base\RegistryAutorun.cs" />
-        <Compile Include="Autoruns\Base\ShortcutFileAutorun.cs" />
-    </ItemGroup>
-    <ItemGroup>
-        <None Include="App.config" />
-    </ItemGroup>
-    <ItemGroup>
-        <PackageReference Include="ILRepack.Lib.MSBuild.Task">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{53B151C0-B2F3-4352-AF5E-87F533134D31}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>AutoAutoruns</RootNamespace>
+    <AssemblyName>AutoAutoruns</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+    <LangVersion>latest</LangVersion>
+    <Nullable>enable</Nullable>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>IconGroup29.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.IO.Compression" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Autoruns\AdobeAcrobatCheckForUpdates.cs" />
+    <Compile Include="Autoruns\AdobeAcrobatSynchronizer.cs" />
+    <Compile Include="Autoruns\AdobeGenuineSoftwareIntegrityScheduler.cs" />
+    <Compile Include="Autoruns\AutoCADColumnHandler.cs" />
+    <Compile Include="Autoruns\AutoCADContextMenuHandler.cs" />
+    <Compile Include="Autoruns\AdobeAcrobatUpdateTask.cs" />
+    <Compile Include="Autoruns\AdobeCoreSyncExtension.cs" />
+    <Compile Include="Autoruns\AdobeAcrobatContextMenu.cs" />
+    <Compile Include="Autoruns\AdobeCreativeCloudExperienceProcess.cs" />
+    <Compile Include="Autoruns\AdobeFlashPlayerNotifier.cs" />
+    <Compile Include="Autoruns\AdobeFlashPlayerUpdater.cs" />
+    <Compile Include="Autoruns\AdobeGCInvokerRegistry.cs" />
+    <Compile Include="Autoruns\AdobeGCInvokerScheduledTask.cs" />
+    <Compile Include="Autoruns\Base\Autorun.cs" />
+    <Compile Include="Autoruns\AdobeCreativeCloudExperience.cs" />
+    <Compile Include="Autoruns\AdobeCreativeCloud.cs" />
+    <Compile Include="Autoruns\Base\ScheduledTaskAutorun.cs" />
+    <Compile Include="Autoruns\CanonEosUtility.cs" />
+    <Compile Include="Autoruns\CCleanerCrashReporting.cs" />
+    <Compile Include="Autoruns\CCleanerUpdate.cs" />
+    <Compile Include="Autoruns\HexWorkshopContextMenu.cs" />
+    <Compile Include="Autoruns\NvidiaControlPanelDesktopContextMenuHandler.cs" />
+    <Compile Include="Autoruns\NvidiaShellExtensions.cs" />
+    <Compile Include="Autoruns\VMDiskMenuHandler.cs" />
+    <Compile Include="Autoruns\VmwareTray.cs" />
+    <Compile Include="Autoruns\AdobeAcrobatAssistant.cs" />
+    <Compile Include="Autoruns\AdobeApplicationManagerUpdater.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Autoruns\Base\RegistryAutorun.cs" />
+    <Compile Include="Autoruns\Base\ShortcutFileAutorun.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="ILRepack.Lib.MSBuild.Task">
             <Version>2.0.26</Version>
-            <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-            <PrivateAssets>all</PrivateAssets>
-        </PackageReference>
-        <PackageReference Include="TaskScheduler">
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
+    <PackageReference Include="TaskScheduler">
             <Version>2.10.1</Version>
-        </PackageReference>
-    </ItemGroup>
-    <ItemGroup>
-        <Content Include="IconGroup29.ico" />
-    </ItemGroup>
-    <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+    </PackageReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="IconGroup29.ico" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

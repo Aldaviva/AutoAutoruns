@@ -1,4 +1,4 @@
-﻿#nullable enable
+#nullable enable
 
 using AutoAutoruns.Autoruns;
 using AutoAutoruns.Autoruns.Base;
@@ -19,6 +19,7 @@ public static class Program {
 
     private static readonly IEnumerable<Autorun> AUTORUNS_TO_DISABLE = [
         new AdobeAcrobatAssistant(),
+        new AdobeAcrobatCheckForUpdates(),
         new AdobeAcrobatContextMenuApprovedShellExtension(),
         new AdobeAcrobatContextMenuFolderContextMenuHandlers(),
         new AdobeAcrobatContextMenuWildcardContextMenuHandlers(),
@@ -33,16 +34,16 @@ public static class Program {
         new AdobeCreativeCloud(),
         new AdobeCreativeCloudExperience(),
         new AdobeCreativeCloudExperienceProcess(),
+        new AdobeFlashPlayerNotifier(),
+        new AdobeFlashPlayerUpdater(),
         new AdobeGCInvokerRegistry(),
         new AdobeGCInvokerScheduledTask(),
         new AdobeGenuineSoftwareIntegrityScheduler(),
-        new AdobeFlashPlayerNotifier(),
-        new AdobeFlashPlayerUpdater(),
         new AutoCADColumnHandler(),
         new AutoCADContextMenuHandler(),
         new CanonEosUtility(),
-        new CCleanerUpdate(),
         new CCleanerCrashReporting(),
+        new CCleanerUpdate(),
         new HexWorkshopContextMenu(),
         new NvidiaAppShellExtensions(),
         new NvidiaControlPanelDesktopContextClassApprovedShellExtension(),
